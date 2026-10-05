@@ -79,7 +79,7 @@ html,body,#root{max-width:100%;overflow-x:hidden}
   background-color: var(--black);
   background-image: url('/hero-bg.png');
   background-size: cover;
-  background-position: center 60%;
+  background-position: center 90%;
   background-repeat: no-repeat;
   border-radius: 0;
   display: flex;
