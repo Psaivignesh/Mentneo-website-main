@@ -282,7 +282,7 @@ function App() {
         <h1 className="hero-heading"><span className="text-mentneo-gradient">MENTNEO</span> <span>DevDay</span> <span className="text-purple">[2026]</span></h1>
         <p className="hero-intro">WE RESEARCH. <span style={{color: '#3b82f6'}}>WE BUILD.</span> WE DEPLOY.</p>
         <div className="hero-actions" style={{justifyContent: 'center', marginTop: '24px'}}>
-          <a className="button button-watch" href="#live">Coming soon</a>
+          <a className="button button-watch" href="#live"><span className="coming-dot"></span>Coming soon</a>
         </div>
       </div>
     </div>

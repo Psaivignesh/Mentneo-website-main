@@ -306,20 +306,58 @@ html,body,#root{max-width:100%;overflow-x:hidden}
   background-clip: text;
   color: transparent;
 }
-.button-watch {
-  background: #e5e5e5;
-  color: #000;
-  border-radius: 30px;
-  padding: 10px 24px;
-  font: 500 14px 'Inter', sans-serif;
-  text-decoration: none;
-  transition: background 0.2s;
-  display: inline-block;
-  border: none;
+@keyframes buttonPulse {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.4), 0 0 5px rgba(139, 92, 246, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.7), 0 0 15px rgba(139, 92, 246, 0.6);
+  }
 }
+
+@keyframes shimmerSweep {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes dotBlink {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.3; transform: scale(0.7); }
+}
+
+.button-watch {
+  position: relative;
+  background: linear-gradient(110deg, #ffffff 0%, #dbeafe 35%, #ffffff 50%, #e0e7ff 70%, #ffffff 100%);
+  background-size: 250% 100%;
+  animation: shimmerSweep 3.5s infinite linear, buttonPulse 2.5s infinite ease-in-out;
+  color: #000000;
+  border-radius: 30px;
+  padding: 12px 28px;
+  font: 600 14px 'Inter', sans-serif;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  letter-spacing: 0.02em;
+}
+
+.button-watch .coming-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #00e5ff;
+  display: inline-block;
+  box-shadow: 0 0 8px #00e5ff;
+  animation: dotBlink 1.5s infinite ease-in-out;
+}
+
 .button-watch:hover {
-  background: #d4d4d4;
-  color: #000;
+  background: #ffffff;
+  color: #000000;
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 0 35px rgba(0, 255, 255, 0.9), 0 0 20px rgba(139, 92, 246, 0.7);
 }
 .brand span:not(.brand-mark) {
   font-weight: 800 !important;
