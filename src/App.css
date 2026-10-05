@@ -67,9 +67,10 @@ html,body,#root{max-width:100%;overflow-x:hidden}
 .header-login { font: 500 14px 'Inter'; color: var(--text); text-decoration: none; padding: 10px 20px; border-radius: 30px; transition: background 0.2s; }
 .header-login:hover { background: rgba(0,0,0,0.05); }
 .hero-container {
-  padding: 120px 2vw 20px;
-  max-width: 1400px;
-  margin: 0 auto;
+  padding: 70px 0 20px;
+  max-width: 100%;
+  width: 100%;
+  margin: 0;
 }
 .hero {
   position: relative;
@@ -80,14 +81,14 @@ html,body,#root{max-width:100%;overflow-x:hidden}
   background-size: cover;
   background-position: center 60%;
   background-repeat: no-repeat;
-  border-radius: 32px;
+  border-radius: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   color: var(--white);
-  padding: 90px 20px 110px;
+  padding: 100px 5vw 120px;
 }
 .hero-close {
   position: absolute;
@@ -285,7 +286,7 @@ html,body,#root{max-width:100%;overflow-x:hidden}
 
 @media(max-width: 900px) {
   .hero-cards { grid-template-columns: 1fr; }
-  .hero { border-radius: 20px; padding: 60px 20px; }
+  .hero { border-radius: 0; padding: 60px 20px; }
   .hero h1 { font-size: 2.5rem; }
   .hero-actions { flex-direction: column; width: 100%; }
   .hero-actions .button { width: 100%; }
