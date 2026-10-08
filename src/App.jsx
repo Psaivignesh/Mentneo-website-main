@@ -1273,8 +1273,58 @@ function App() {
       <section className="technology section-pad" id="technology"><div className="section-label">14 / TECHNOLOGY</div><div className="section-heading"><h2>A considered<br /><span>technology ecosystem.</span></h2><p>The tools change. The principles stay: useful systems, clear architecture, and production-minded engineering.</p></div><div className="tech-grid">{[['AI & ML', 'LLMs, AI agents, RAG, model evaluation, computer vision, NLP'], ['Application Engineering', 'Web applications, APIs, dashboards, and enterprise platforms'], ['Data', 'Databases, data pipelines, analytics, and knowledge systems'], ['Infrastructure', 'Cloud, deployment, APIs, monitoring, and scalability'], ['Integrations', 'CRM, ERP, communication systems, business software, and APIs']].map(([title, text], index) => <article key={title}><span>0{index + 1}</span><h3>{title}</h3><p>{text}</p></article>)}</div></section>
       <section className="engagement section-pad"><div className="section-label">12 / ENGAGEMENT MODEL</div><div className="section-heading"><h2>How we can<br /><span>work together.</span></h2></div><div className="engagement-grid">{engagements.map(([title, text, cta], index) => <article key={title}><span>0{index + 1}</span><h3>{title}</h3><p>{text}</p><a href="#contact">{cta} <b>↗</b></a></article>)}</div></section>
       <section className="proof section-pad"><div className="section-label">13 / TRUST</div><div className="proof-content"><h2>Technology built<br /><span>for the real world.</span></h2><p>From research and experimentation to implementation and deployment, Mentneo focuses on building technology that solves measurable business problems.</p></div><div className="timeline">{['Research', 'Prototype', 'Engineering', 'Integration', 'Deployment', 'Optimization'].map((item, i) => <div key={item}><span>0{i + 1}</span><strong>{item}</strong></div>)}</div></section>
-      <section className="contact section-pad" id="contact"><div className="section-label">LET’S WORK ON THE RIGHT THING</div><h2>Have a problem<br /><em>worth solving?</em></h2><p>Tell us what your business is trying to solve. Our R&D team will evaluate the problem, identify the right technology approach, and help turn it into a production-ready solution.</p><a className="button button-primary" href="mailto:hello@mentneo.com">Start a conversation <span>↗</span></a></section>
-      <footer><a className="brand" href="#top"><span className="brand-mark">M</span><span>MENTNEO</span></a><span>AI RESEARCH & DEVELOPMENT</span><nav><a href="#approach">Approach</a><a href="#capabilities">Capabilities</a><a href="#lab">R&D Lab</a><a href="#contact">Contact</a></nav><small>© 2026 Mentneo. Researching what’s next.</small></footer>
+      <section className="contact section-pad" id="contact">
+        <div className="contact-aura-glow" />
+        <div className="contact-content-inner">
+          <div className="contact-eyebrow">LET’S WORK ON THE RIGHT THING</div>
+          <h2 className="contact-main-heading">
+            Have a problem<br />
+            <span className="contact-heading-purple">worth</span>{' '}
+            <span className="contact-heading-blue">solving?</span>
+          </h2>
+          <p className="contact-subtitle">
+            Tell us what your business is trying to solve. Our R&D team will evaluate the problem, identify the right technology approach, and help turn it into a production-ready solution.
+          </p>
+          <a className="contact-cta-btn" href="mailto:hello@mentneo.com">
+            Start a conversation <span className="btn-arrow">↗</span>
+          </a>
+        </div>
+      </section>
+
+      <footer className="site-footer">
+        <div className="footer-left-col">
+          <a className="footer-brand" href="#top">
+            <span className="brand-mark" />
+            <strong className="brand-text">MENTNEO</strong>
+          </a>
+          <small className="footer-copyright">© 2026 Mentneo. Researching what’s next.</small>
+        </div>
+
+        <div className="footer-center-col">
+          <span className="footer-tagline">AI RESEARCH & DEVELOPMENT</span>
+        </div>
+
+        <div className="footer-right-col">
+          <nav className="footer-nav">
+            <a href="#approach">Approach</a>
+            <a href="#capabilities">Capabilities</a>
+            <a href="#lab">R&D Lab</a>
+            <a href="#contact">Contact</a>
+          </nav>
+          <div className="footer-socials">
+            <a href="https://x.com" target="_blank" rel="noreferrer" className="social-icon-btn" aria-label="X">𝕏</a>
+            <a href="https://facebook.com" target="_blank" rel="noreferrer" className="social-icon-btn" aria-label="Facebook">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="social-icon-btn" aria-label="LinkedIn">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a href="https://youtube.com" target="_blank" rel="noreferrer" className="social-icon-btn" aria-label="YouTube">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="#000000"/></svg>
+            </a>
+          </div>
+        </div>
+      </footer>
     </main>
   )
 }
