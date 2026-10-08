@@ -1266,7 +1266,54 @@ function App() {
         </div>
       </section>
       <section className="industries section-pad" id="industries"><div className="section-label">09 / INDUSTRIES</div><div className="section-heading"><h2>Built for real<br /><span>business problems.</span></h2><p>We research the operational reality of each environment before we design what belongs inside it.</p></div><div className="industry-grid">{['Real Estate', 'Healthcare', 'Education', 'Finance', 'Retail', 'Manufacturing', 'Logistics', 'Technology', 'SaaS', 'Professional Services', 'Enterprise'].map((industry, index) => <article key={industry}><span>0{index + 1}</span><h3>{industry}</h3><p>Research-led systems for the specific challenges of {industry.toLowerCase()}.</p></article>)}</div></section>
-      <section className="lab section-pad" id="lab"><div className="lab-header"><div className="section-label">07 / R&D LAB</div><h2>Where research<br /><span>becomes technology.</span></h2><p>Mentneo continuously researches emerging technologies and turns valuable research into practical systems for real-world businesses.</p></div><div className="lab-board"><div className="board-top"><span>MENTNEO / RESEARCH INDEX</span><span>STATUS: ACTIVE <i className="pulse" /></span></div><div className="lab-grid">{['Generative AI', 'AI Agents', 'Voice AI', 'LLMs', 'RAG', 'AI Automation', 'Computer Vision', 'Intelligent Data', 'Model Evaluation', 'AI Infrastructure', 'Prototype', 'Production System'].map((item, i) => <div className="lab-cell" key={item}><span>0{i + 1}</span><strong>{item}</strong><i>↗</i></div>)}</div></div></section>
+      <section className="lab section-pad" id="lab">
+        <div className="lab-container">
+          <div className="lab-header">
+            <div className="section-label">
+              <span>07 / R&D LAB</span>
+              <span className="label-line" />
+            </div>
+            <h2>
+              Where research<br />
+              becomes<br />
+              <span className="lab-heading-purple">technology.</span>
+            </h2>
+            <p>Mentneo continuously researches emerging technologies and turns valuable research into practical systems for real-world businesses.</p>
+          </div>
+          <div className="lab-board">
+            <div className="board-top">
+              <span>MENTNEO / RESEARCH INDEX</span>
+              <span className="board-status">STATUS: ACTIVE <i className="pulse-dot" /></span>
+            </div>
+            <div className="lab-list">
+              {[
+                'Generative AI',
+                'AI Agents',
+                'Voice AI',
+                'LLMs',
+                'RAG',
+                'AI Automation',
+                'Computer Vision',
+                'Intelligent Data',
+                'Model Evaluation',
+                'AI Infrastructure',
+                'Prototype',
+                'Production System'
+              ].map((item, i) => {
+                const num = i + 1 < 10 ? `0${i + 1}` : `${i + 1}`;
+                const isActive = i === 0;
+                return (
+                  <div key={item} className={`lab-row ${isActive ? 'active' : ''}`}>
+                    <span className="lab-row-num">{num}</span>
+                    <span className="lab-row-title">{item}</span>
+                    <span className="lab-row-arrow">↗</span>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section className="projects section-pad" id="projects"><div className="section-label">10 / PROJECTS</div><div className="section-heading"><h2>Research that becomes<br /><span>real systems.</span></h2><p>We measure our work by what gets implemented and deployed, not just what gets demonstrated.</p></div><div className="project-placeholder"><span>VERIFIED PROJECT ARCHIVE</span><strong>Selected systems are available for a focused R&D conversation.</strong><p>Project details, outcomes, and metrics are shared only when verified and appropriate to the work.</p><a className="button button-primary" href="#contact">Discuss a project <span>↗</span></a></div></section>
       <section className="why section-pad"><div className="section-label">11 / WHY MENTNEO</div><div className="section-heading"><h2>Built to stay<br /><span>useful.</span></h2></div><div className="why-grid">{reasons.map(([title, text], index) => <article key={title} onMouseMove={(e) => { const rect = e.currentTarget.getBoundingClientRect(); e.currentTarget.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`); e.currentTarget.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`); }}><span>0{index + 1}</span><h3>{title}</h3><p>{text}</p></article>)}</div></section>

@@ -973,3 +973,189 @@ html,body,#root{max-width:100%;overflow-x:hidden}
     transition: none !important;
   }
 }
+
+/* SECTION 07 / R&D LAB */
+.lab {
+  position: relative;
+  background: #000000;
+  padding: 120px 5vw;
+}
+
+.lab-container {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 70px;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.lab-header .section-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  font: 500 11px 'Inter', sans-serif;
+  letter-spacing: 0.18em;
+  color: #94a3b8;
+  text-transform: uppercase;
+}
+
+.lab-header .label-line {
+  display: inline-block;
+  width: 36px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.lab-header h2 {
+  font-size: clamp(3rem, 5.2vw, 4.6rem);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+  color: #ffffff;
+  margin: 0 0 28px 0;
+}
+
+.lab-heading-purple {
+  background: linear-gradient(135deg, #a78bfa 0%, #818cf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 400;
+}
+
+.lab-header p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #94a3b8;
+  max-width: 480px;
+  margin: 0;
+}
+
+.lab-board {
+  background: rgba(12, 14, 26, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 20px;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  padding: 24px 28px 28px;
+  width: 100%;
+}
+
+.board-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 10px;
+  font: 500 11px 'Inter', sans-serif;
+  letter-spacing: 0.14em;
+  color: #94a3b8;
+  text-transform: uppercase;
+}
+
+.board-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #cbd5e1;
+}
+
+.pulse-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #a855f7;
+  box-shadow: 0 0 10px #a855f7, 0 0 4px #a855f7;
+  display: inline-block;
+  animation: pulseGlow 2s infinite alternate;
+}
+
+@keyframes pulseGlow {
+  0% { opacity: 0.6; box-shadow: 0 0 6px #a855f7; }
+  100% { opacity: 1; box-shadow: 0 0 14px #a855f7, 0 0 6px #a855f7; }
+}
+
+.lab-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.lab-row {
+  display: flex;
+  align-items: center;
+  padding: 11px 16px;
+  border-radius: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+}
+
+.lab-row:hover,
+.lab-row.active {
+  background: linear-gradient(90deg, rgba(139, 92, 246, 0.3) 0%, rgba(99, 102, 241, 0.15) 100%);
+  border-bottom-color: transparent;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 4px 20px rgba(139, 92, 246, 0.15);
+}
+
+.lab-row-num {
+  font: 500 13px 'Inter', sans-serif;
+  color: #64748b;
+  width: 45px;
+  flex-shrink: 0;
+  transition: color 0.2s ease;
+}
+
+.lab-row:hover .lab-row-num,
+.lab-row.active .lab-row-num {
+  color: #cbd5e1;
+}
+
+.lab-row-title {
+  font: 500 14.5px 'Inter', sans-serif;
+  color: #e2e8f0;
+  flex: 1;
+  letter-spacing: -0.01em;
+  transition: color 0.2s ease;
+}
+
+.lab-row:hover .lab-row-title,
+.lab-row.active .lab-row-title {
+  color: #ffffff;
+}
+
+.lab-row-arrow {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: grid;
+  place-items: center;
+  font-size: 12px;
+  color: #94a3b8;
+  font-style: normal;
+  transition: all 0.25s ease;
+}
+
+.lab-row:hover .lab-row-arrow,
+.lab-row.active .lab-row-arrow {
+  background: linear-gradient(135deg, #a855f7 0%, #6366f1 100%);
+  border-color: transparent;
+  color: #ffffff;
+  box-shadow: 0 0 14px rgba(168, 85, 247, 0.6);
+  transform: scale(1.05);
+}
+
+@media (max-width: 900px) {
+  .lab-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
