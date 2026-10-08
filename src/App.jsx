@@ -771,6 +771,43 @@ const buildItems = [['AI Research & Development', 'Experiments, prototypes, eval
 const reasons = [['Research first', 'We investigate before selecting technology.'], ['Business specific', 'Solutions are designed around real workflows.'], ['Engineering driven', 'Research becomes working technology.'], ['Production focused', 'Systems are built for deployment.'], ['Integration ready', 'Technology works with existing systems.'], ['Long-term R&D', 'We continuously improve deployed systems.']]
 const engagements = [['R&D Partnership', 'Continuous technology research and development.', 'Build with Mentneo'], ['Custom Solution', 'A specific business problem requiring a custom AI or software system.', 'Discuss your problem'], ['Implementation & Deployment', 'Engineering, integration, and production deployment.', 'Start implementation']]
 const labTopics = [['LLMs', 'Language models, evaluation, and practical reasoning systems.'], ['AI Agents', 'Autonomous workflows, tool use, orchestration, and task execution.'], ['Voice AI', 'Natural voice interfaces for customer and operational systems.'], ['RAG', 'Grounded knowledge systems built around trusted business data.'], ['Computer Vision', 'Systems that interpret images, documents, and physical environments.'], ['Automation', 'Reliable intelligent workflows that reduce repetitive work.'], ['Data Intelligence', 'Search, analytics, and decision support across connected data.'], ['Infrastructure', 'The production foundations that keep intelligent systems useful.']]
+const industryRowsData = [
+  {
+    direction: 'left',
+    speedClass: 'row-speed-1',
+    cards: [
+      { id: '01', title: 'Real Estate', desc: 'Research-led systems for the specific challenges of real estate.' },
+      { id: '02', title: 'Healthcare', desc: 'Research-led systems for the specific challenges of healthcare.' },
+      { id: '03', title: 'Education', desc: 'Research-led systems for the specific challenges of education.' },
+    ]
+  },
+  {
+    direction: 'right',
+    speedClass: 'row-speed-2',
+    cards: [
+      { id: '04', title: 'Finance', desc: 'Research-led systems for the specific challenges of finance.' },
+      { id: '05', title: 'Retail', desc: 'Research-led systems for the specific challenges of retail.' },
+      { id: '06', title: 'Manufacturing', desc: 'Research-led systems for the specific challenges of manufacturing.' },
+    ]
+  },
+  {
+    direction: 'left',
+    speedClass: 'row-speed-3',
+    cards: [
+      { id: '07', title: 'Logistics', desc: 'Research-led systems for the specific challenges of logistics.' },
+      { id: '08', title: 'Technology', desc: 'Research-led systems for the specific challenges of technology.' },
+      { id: '09', title: 'SaaS', desc: 'Research-led systems for the specific challenges of saas.' },
+    ]
+  },
+  {
+    direction: 'right',
+    speedClass: 'row-speed-4',
+    cards: [
+      { id: '10', title: 'Professional Services', desc: 'Research-led systems for the specific challenges of professional services.' },
+      { id: '11', title: 'Enterprise', desc: 'Research-led systems for the specific challenges of enterprise.' },
+    ]
+  }
+]
 const menuData = {
   Research: { label: 'Explore research', primary: ['AI Research', 'R&D Lab', 'Emerging Technologies', 'AI Agents', 'Voice AI', 'Intelligent Systems'], secondary: ['LLMs', 'RAG Systems', 'AI Automation', 'Computer Vision', 'Data Intelligence', 'AI Infrastructure'], cta: 'Explore Mentneo R&D' },
   Solutions: { label: 'Solutions', primary: ['Business Automation', 'AI Customer Systems', 'AI Voice Solutions', 'Intelligent Data Systems', 'Custom AI Systems'], secondary: ['Enterprise Solutions', 'Workflow Intelligence', 'AI Integration', 'Software Systems', 'Digital Transformation'], cta: 'Tell us your business problem' },
@@ -1265,7 +1302,31 @@ function App() {
           </div>
         </div>
       </section>
-      <section className="industries section-pad" id="industries"><div className="section-label">09 / INDUSTRIES</div><div className="section-heading"><h2>Built for real<br /><span>business problems.</span></h2><p>We research the operational reality of each environment before we design what belongs inside it.</p></div><div className="industry-grid">{['Real Estate', 'Healthcare', 'Education', 'Finance', 'Retail', 'Manufacturing', 'Logistics', 'Technology', 'SaaS', 'Professional Services', 'Enterprise'].map((industry, index) => <article key={industry}><span>0{index + 1}</span><h3>{industry}</h3><p>Research-led systems for the specific challenges of {industry.toLowerCase()}.</p></article>)}</div></section>
+      <section className="industries section-pad" id="industries">
+        <div className="section-label">09 / INDUSTRIES</div>
+        <div className="section-heading">
+          <h2>Built for real<br /><span>business problems.</span></h2>
+          <p>We research the operational reality of each environment before we design what belongs inside it.</p>
+        </div>
+        <div className="industry-carousel-container">
+          {industryRowsData.map((row, rIdx) => {
+            const repeatedCards = [...row.cards, ...row.cards, ...row.cards, ...row.cards];
+            return (
+              <div key={rIdx} className={`industry-row-wrapper dir-${row.direction} ${row.speedClass}`}>
+                <div className="industry-track">
+                  {repeatedCards.map((card, cIdx) => (
+                    <article key={`${card.id}-${cIdx}`} className="industry-carousel-card">
+                      <span>{card.id}</span>
+                      <h3>{card.title}</h3>
+                      <p>{card.desc}</p>
+                    </article>
+                  ))}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </section>
       <section className="lab section-pad" id="lab"><div className="lab-header"><div className="section-label">07 / R&D LAB</div><h2>Where research<br /><span>becomes technology.</span></h2><p>Mentneo continuously researches emerging technologies and turns valuable research into practical systems for real-world businesses.</p></div><div className="lab-board"><div className="board-top"><span>MENTNEO / RESEARCH INDEX</span><span>STATUS: ACTIVE <i className="pulse" /></span></div><div className="lab-grid">{['Generative AI', 'AI Agents', 'Voice AI', 'LLMs', 'RAG', 'AI Automation', 'Computer Vision', 'Intelligent Data', 'Model Evaluation', 'AI Infrastructure', 'Prototype', 'Production System'].map((item, i) => <div className="lab-cell" key={item}><span>0{i + 1}</span><strong>{item}</strong><i>↗</i></div>)}</div></div></section>
 
       <section className="projects section-pad" id="projects"><div className="section-label">10 / PROJECTS</div><div className="section-heading"><h2>Research that becomes<br /><span>real systems.</span></h2><p>We measure our work by what gets implemented and deployed, not just what gets demonstrated.</p></div><div className="project-placeholder"><span>VERIFIED PROJECT ARCHIVE</span><strong>Selected systems are available for a focused R&D conversation.</strong><p>Project details, outcomes, and metrics are shared only when verified and appropriate to the work.</p><a className="button button-primary" href="#contact">Discuss a project <span>↗</span></a></div></section>
