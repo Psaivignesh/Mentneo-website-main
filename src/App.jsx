@@ -72,7 +72,701 @@ const capabilityVisuals = [
 ]
 const problems = [['Manual process', 'Intelligent automation'], ['High support load', 'AI customer interaction'], ['Repetitive calls', 'AI voice agents'], ['Scattered business data', 'Knowledge systems'], ['Legacy software', 'Modernization & integration'], ['Complex workflow', 'Custom AI system'], ['New technology needed', 'Research to production'], ['AI for existing software', 'AI integration']]
 const steps = [['01', 'Discover', 'Understand the business, workflow, users, data, and constraints.'], ['02', 'Research', 'Study technologies, architectures, models, APIs, datasets, and approaches.'], ['03', 'Architect', 'Design the technical architecture and solution strategy.'], ['04', 'Build', 'Develop the models, agents, applications, automation, APIs, and infrastructure.'], ['05', 'Integrate', 'Connect the solution with existing software, databases, and business workflows.'], ['06', 'Deploy', 'Move the solution into a production environment.'], ['07', 'Improve', 'Monitor performance, analyze feedback, optimize, and continue R&D.']]
-const challenges = [['Manual Operations', 'Repetitive processes consume time and resources.'], ['Fragmented Data', 'Important information exists across disconnected systems.'], ['Customer Operations', 'Sales and support require constant manual interaction.'], ['Legacy Systems', 'Existing technology limits new capabilities.'], ['Complex Workflows', 'Business processes are difficult to automate.'], ['AI Adoption', 'Businesses want AI but need to know what to build.']]
+
+const problemSolutionData = [
+  {
+    id: '01',
+    problem: 'MANUAL PROCESS',
+    solution: 'INTELLIGENT AUTOMATION',
+    icon: 'automation',
+    subtitle: '01 / AUTOMATION',
+    cardTitle: 'MANUAL PROCESS',
+    desc: 'Transform repetitive manual tasks into high-speed automated workflows, eliminating human error and accelerating output.',
+    steps: [
+      { num: '01', title: 'ANALYZE', desc: 'We map out existing workflow bottlenecks and repetitive manual steps.' },
+      { num: '02', title: 'RESEARCH', desc: 'We identify suitable automation engines, APIs, and AI agent frameworks.' },
+      { num: '03', title: 'DESIGN', desc: 'We architect autonomous workflow pipelines and validation loops.' },
+      { num: '04', title: 'DEVELOP', desc: 'We build and test custom automation scripts and seamless integrations.' },
+      { num: '05', title: 'DEPLOY', desc: 'We deploy with real-time monitoring and fallback mechanisms.' }
+    ]
+  },
+  {
+    id: '02',
+    problem: 'HIGH SUPPORT LOAD',
+    solution: 'AI CUSTOMER INTERACTION',
+    icon: 'headset',
+    subtitle: '02 / RESEARCH',
+    cardTitle: 'HIGH SUPPORT LOAD',
+    desc: 'Handle high customer support volume with AI-powered interactions, reducing response time and improving customer satisfaction.',
+    steps: [
+      { num: '01', title: 'ANALYZE', desc: 'We analyze support data, identify common issues and customer pain points.' },
+      { num: '02', title: 'RESEARCH', desc: 'We explore the best AI models, tools, and strategies for automation.' },
+      { num: '03', title: 'DESIGN', desc: 'We design conversation flows and system architecture.' },
+      { num: '04', title: 'DEVELOP', desc: 'We build and integrate the AI solution with your systems.' },
+      { num: '05', title: 'DEPLOY', desc: 'We launch, monitor, and continuously improve performance.' }
+    ]
+  },
+  {
+    id: '03',
+    problem: 'REPETITIVE CALLS',
+    solution: 'AI VOICE AGENTS',
+    icon: 'mic',
+    subtitle: '03 / VOICE',
+    cardTitle: 'REPETITIVE CALLS',
+    desc: 'Deploy voice AI agents that handle inbound and outbound calls naturally with sub-second response latency.',
+    steps: [
+      { num: '01', title: 'ANALYZE', desc: 'We record call patterns, intent scripts, and frequent inquiry types.' },
+      { num: '02', title: 'RESEARCH', desc: 'We select low-latency speech synthesis, STT, and voice LLM pipelines.' },
+      { num: '03', title: 'DESIGN', desc: 'We design conversational state machines and interruption handling.' },
+      { num: '04', title: 'DEVELOP', desc: 'We build custom voice tools connected with telephony infrastructure.' },
+      { num: '05', title: 'DEPLOY', desc: 'We deploy live voice agents with call sentiment & quality analytics.' }
+    ]
+  },
+  {
+    id: '04',
+    problem: 'SCATTERED BUSINESS DATA',
+    solution: 'KNOWLEDGE SYSTEMS',
+    icon: 'database',
+    subtitle: '04 / DATA',
+    cardTitle: 'SCATTERED BUSINESS DATA',
+    desc: 'Consolidate fragmented documents, databases, and silos into a unified vector retrieval knowledge system.',
+    steps: [
+      { num: '01', title: 'ANALYZE', desc: 'We audit data sources, access permissions, and document formats.' },
+      { num: '02', title: 'RESEARCH', desc: 'We select optimal embedding models, vector DBs, and chunking strategies.' },
+      { num: '03', title: 'DESIGN', desc: 'We architect context retrieval pipelines and hybrid search indexing.' },
+      { num: '04', title: 'DEVELOP', desc: 'We build document parsing pipelines and secure RAG backends.' },
+      { num: '05', title: 'DEPLOY', desc: 'We roll out company-wide semantic search and intelligent dynamic QA.' }
+    ]
+  },
+  {
+    id: '05',
+    problem: 'LEGACY SOFTWARE',
+    solution: 'MODERNIZATION & INTEGRATION',
+    icon: 'legacy',
+    subtitle: '05 / SYSTEM',
+    cardTitle: 'LEGACY SOFTWARE',
+    desc: 'Connect modern AI capabilities into legacy databases and ERP platforms without rewriting core enterprise infrastructure.',
+    steps: [
+      { num: '01', title: 'ANALYZE', desc: 'We evaluate legacy APIs, database protocols, and data schemas.' },
+      { num: '02', title: 'RESEARCH', desc: 'We design secure wrapper middleware and asynchronous queue layers.' },
+      { num: '03', title: 'DESIGN', desc: 'We blueprint API adapters and real-time synchronization pipelines.' },
+      { num: '04', title: 'DEVELOP', desc: 'We write robust API bridges and data normalization services.' },
+      { num: '05', title: 'DEPLOY', desc: 'We integrate with zero downtime and live telemetry logging.' }
+    ]
+  },
+  {
+    id: '06',
+    problem: 'COMPLEX WORKFLOW',
+    solution: 'CUSTOM AI SYSTEM',
+    icon: 'workflow',
+    subtitle: '06 / ARCHITECTURE',
+    cardTitle: 'COMPLEX WORKFLOW',
+    desc: 'Streamline complex multi-departmental operations into orchestrated multi-agent AI ecosystems.',
+    steps: [
+      { num: '01', title: 'ANALYZE', desc: 'We detail end-to-end handoffs, edge cases, and human decision checkpoints.' },
+      { num: '02', title: 'RESEARCH', desc: 'We evaluate agentic orchestration tools, state management, and memory.' },
+      { num: '03', title: 'DESIGN', desc: 'We design supervisor-agent architectures and execution DAGs.' },
+      { num: '04', title: 'DEVELOP', desc: 'We develop multi-agent networks with explicit guardrails.' },
+      { num: '05', title: 'DEPLOY', desc: 'We launch human-in-the-loop workflows with granular audit trails.' }
+    ]
+  },
+  {
+    id: '07',
+    problem: 'NEW TECHNOLOGY NEEDED',
+    solution: 'RESEARCH TO PRODUCTION',
+    icon: 'tech',
+    subtitle: '07 / INNOVATION',
+    cardTitle: 'NEW TECHNOLOGY NEEDED',
+    desc: 'Evaluate cutting-edge AI breakthroughs and rapidly transition theoretical concepts into production-grade systems.',
+    steps: [
+      { num: '01', title: 'ANALYZE', desc: 'We benchmark emerging papers, models, and industry breakthroughs.' },
+      { num: '02', title: 'RESEARCH', desc: 'We run feasibility spikes and proof-of-concept benchmarks.' },
+      { num: '03', title: 'DESIGN', desc: 'We specify production architecture, latency targets, and scalability.' },
+      { num: '04', title: 'DEVELOP', desc: 'We fine-tune models, optimize latency, and harden security.' },
+      { num: '05', title: 'DEPLOY', desc: 'We deploy resilient cloud infrastructure with continuous evaluation.' }
+    ]
+  },
+  {
+    id: '08',
+    problem: 'AI FOR EXISTING SOFTWARE',
+    solution: 'AI INTEGRATION',
+    icon: 'integration',
+    subtitle: '08 / EXPANSION',
+    cardTitle: 'AI FOR EXISTING SOFTWARE',
+    desc: 'Supercharge your existing SaaS or custom software with smart AI features, dynamic chat, and predictive intelligence.',
+    steps: [
+      { num: '01', title: 'ANALYZE', desc: 'We analyze existing software architecture and user flow touchpoints.' },
+      { num: '02', title: 'RESEARCH', desc: 'We research seamless UX embed patterns and light LLM endpoints.' },
+      { num: '03', title: 'DESIGN', desc: 'We design interactive AI UI components matching your existing system.' },
+      { num: '04', title: 'DEVELOP', desc: 'We build micro-APIs and frontend components for zero-friction integration.' },
+      { num: '05', title: 'DEPLOY', desc: 'We roll out features seamlessly with performance monitoring.' }
+    ]
+  }
+]
+
+const renderProblemIcon = (icon) => {
+  if (icon === 'headset') {
+    return (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M3 18v-6a9 9 0 0 1 18 0v6" />
+        <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z" />
+      </svg>
+    )
+  }
+  if (icon === 'automation') {
+    return (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="2" y="2" width="20" height="8" rx="2" />
+        <rect x="2" y="14" width="20" height="8" rx="2" />
+        <line x1="6" y1="6" x2="6.01" y2="6" />
+        <line x1="6" y1="18" x2="6.01" y2="18" />
+      </svg>
+    )
+  }
+  if (icon === 'mic') {
+    return (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z" />
+        <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+        <line x1="12" y1="19" x2="12" y2="22" />
+      </svg>
+    )
+  }
+  if (icon === 'database') {
+    return (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <ellipse cx="12" cy="5" rx="9" ry="3" />
+        <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
+        <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+      </svg>
+    )
+  }
+  if (icon === 'legacy') {
+    return (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+        <line x1="8" y1="21" x2="16" y2="21" />
+        <line x1="12" y1="17" x2="12" y2="21" />
+      </svg>
+    )
+  }
+  if (icon === 'workflow') {
+    return (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="3" y="3" width="7" height="7" />
+        <rect x="14" y="3" width="7" height="7" />
+        <rect x="14" y="14" width="7" height="7" />
+        <path d="M10 6h4" />
+        <path d="M7 10v7h7" />
+      </svg>
+    )
+  }
+  if (icon === 'tech') {
+    return (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="4" y="4" width="16" height="16" rx="2" />
+        <rect x="9" y="9" width="6" height="6" />
+        <line x1="9" y1="1" x2="9" y2="4" />
+        <line x1="15" y1="1" x2="15" y2="4" />
+        <line x1="9" y1="20" x2="9" y2="23" />
+        <line x1="15" y1="20" x2="15" y2="23" />
+        <line x1="20" y1="9" x2="23" y2="9" />
+        <line x1="20" y1="15" x2="23" y2="15" />
+        <line x1="1" y1="9" x2="4" y2="9" />
+        <line x1="1" y1="15" x2="4" y2="15" />
+      </svg>
+    )
+  }
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+      <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+    </svg>
+  )
+}
+
+
+const processStepsData = [
+  { num: '01', title: 'Discover', desc: 'Understand the business, users, data, and constraints.', points: ['Business goals', 'User needs', 'Current challenges'], icon: 'discover' },
+  { num: '02', title: 'Research', desc: 'Study technologies, architectures, models, APIs, datasets, and approaches.', points: ['Market & competitor study', 'Technology evaluation', 'Feasibility analysis'], icon: 'research' },
+  { num: '03', title: 'Architect', desc: 'Design the technical architecture and solution strategy.', points: ['System design', 'Scalability planning', 'Security & compliance'], icon: 'architect' },
+  { num: '04', title: 'Build', desc: 'Develop the models, agents, applications, automation, APIs, and infrastructure.', points: ['Development', 'Testing & validation', 'Iterative improvements'], icon: 'build' },
+  { num: '05', title: 'Integrate', desc: 'Connect the solution with existing software, databases, and business workflows.', points: ['Third-party integrations', 'Data migration', 'Workflow automation'], icon: 'integrate' },
+  { num: '06', title: 'Deploy', desc: 'Move the solution into a production environment.', points: ['Cloud deployment', 'Monitoring setup', 'User enablement'], icon: 'deploy' },
+  { num: '07', title: 'Improve', desc: 'Monitor performance, analyze feedback, optimize, and continue R&D.', points: ['Performance monitoring', 'User feedback', 'Continuous innovation'], icon: 'improve', active: true },
+]
+
+const renderProcessIcon = (icon) => {
+  if (icon === 'discover') {
+    return (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+        <polyline points="14 2 14 8 20 8" />
+        <circle cx="11.5" cy="14.5" r="2.5" />
+        <path d="M13.25 16.25L15 18" />
+      </svg>
+    )
+  }
+  if (icon === 'research') {
+    return (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <line x1="18" y1="20" x2="18" y2="10" />
+        <line x1="12" y1="20" x2="12" y2="4" />
+        <line x1="6" y1="20" x2="6" y2="14" />
+      </svg>
+    )
+  }
+  if (icon === 'architect') {
+    return (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <polygon points="12 2 2 7 12 12 22 7 12 2" />
+        <polyline points="2 17 12 22 22 17" />
+        <polyline points="2 12 12 17 22 12" />
+      </svg>
+    )
+  }
+  if (icon === 'build') {
+    return (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <polyline points="16 18 22 12 16 6" />
+        <polyline points="8 6 2 12 8 18" />
+      </svg>
+    )
+  }
+  if (icon === 'integrate') {
+    return (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+      </svg>
+    )
+  }
+  if (icon === 'deploy') {
+    return (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242" />
+        <path d="M12 12v9" />
+        <path d="m16 16-4-4-4 4" />
+      </svg>
+    )
+  }
+  if (icon === 'improve') {
+    return (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+        <polyline points="17 6 23 6 23 12" />
+      </svg>
+    )
+  }
+  return null
+}
+
+const buildCardsData = [
+  { id: '01', title: 'AI RESEARCH & DEVELOPMENT', desc: 'Experiments, prototypes, evaluation, and applied AI architecture.', icon: 'database' },
+  { id: '02', title: 'CUSTOM AI SYSTEMS', desc: 'Intelligent systems designed around your workflows and data.', icon: 'cube' },
+  { id: '03', title: 'AI AGENTS', desc: 'Conversational, workflow, sales, and support agents.', icon: 'sparkles' },
+  { id: '04', title: 'VOICE AI', desc: 'Voice systems for customer interaction and operations.', icon: 'mic' },
+  { id: '05', title: 'BUSINESS AUTOMATION', desc: 'Automation for repetitive processes, reporting, and operations.', icon: 'gear' },
+  { id: '06', title: 'SOFTWARE ENGINEERING', desc: 'Web apps, platforms, APIs, dashboards, and internal tools.', icon: 'code' },
+  { id: '07', title: 'DATA INTELLIGENCE', desc: 'Pipelines, search, knowledge systems, and decision support.', icon: 'chart' },
+  { id: '08', title: 'AI INTEGRATION', desc: 'AI connected to CRM, ERP, communication, and existing software.', icon: 'link' },
+  { id: '09', title: 'DEPLOYMENT & INFRASTRUCTURE', desc: 'Cloud, APIs, databases, monitoring, security, and scale.', icon: 'cloud' }
+]
+
+const renderBuildIcon = (icon) => {
+  if (icon === 'database') {
+    return (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a855f7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <ellipse cx="12" cy="5" rx="9" ry="3" />
+        <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
+        <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+      </svg>
+    )
+  }
+  if (icon === 'cube') {
+    return (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a855f7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+        <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+        <line x1="12" y1="22.08" x2="12" y2="12" />
+      </svg>
+    )
+  }
+  if (icon === 'sparkles') {
+    return (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a855f7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
+        <path d="M5 3v4" />
+        <path d="M19 17v4" />
+        <path d="M3 5h4" />
+        <path d="M17 19h4" />
+      </svg>
+    )
+  }
+  if (icon === 'mic') {
+    return (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a855f7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" />
+        <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+        <line x1="12" y1="19" x2="12" y2="22" />
+      </svg>
+    )
+  }
+  if (icon === 'gear') {
+    return (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a855f7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" />
+        <circle cx="12" cy="12" r="3" />
+      </svg>
+    )
+  }
+  if (icon === 'code') {
+    return (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a855f7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <polyline points="16 18 22 12 16 6" />
+        <polyline points="8 6 2 12 8 18" />
+      </svg>
+    )
+  }
+  if (icon === 'chart') {
+    return (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a855f7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <line x1="18" y1="20" x2="18" y2="10" />
+        <line x1="12" y1="20" x2="12" y2="4" />
+        <line x1="6" y1="20" x2="6" y2="14" />
+      </svg>
+    )
+  }
+  if (icon === 'link') {
+    return (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a855f7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+      </svg>
+    )
+  }
+  if (icon === 'cloud') {
+    return (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a855f7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" />
+      </svg>
+    )
+  }
+  return null
+}
+
+const challengesData = [
+  { id: '01', title: 'Manual Operations', desc: 'Repetitive processes consume time and resources.', points: ['Time-consuming workflows', 'Higher operational costs', 'Increased human errors'], visual: 'documents' },
+  { id: '02', title: 'Fragmented Data', desc: 'Important information exists across disconnected systems.', points: ['Data scattered across tools', 'Lack of real-time visibility', 'Difficult reporting and insights'], visual: 'data' },
+  { id: '03', title: 'Customer Operations', desc: 'Sales and support require constant manual interaction.', points: ['High response times', 'Inconsistent customer experience', 'Limited scalability'], visual: 'customer' },
+  { id: '04', title: 'Legacy Systems', desc: 'Existing technology limits new capabilities.', points: ['Outdated infrastructure', 'Hard to integrate', 'Slower innovation'], visual: 'legacy' },
+  { id: '05', title: 'Complex Workflows', desc: 'Business processes are difficult to automate.', points: ['Multiple tools and approvals', 'Lack of standardization', 'Hard to track and manage'], visual: 'workflow' },
+  { id: '06', title: 'AI Adoption', desc: 'Businesses want AI but need to know what to build.', points: ['Unclear use cases', 'Lack of technical guidance', 'Difficulty in implementation'], visual: 'ai' }
+]
+
+const renderChallengeVisual = (type) => {
+  if (type === 'documents') {
+    return (
+      <svg viewBox="0 0 160 160" width="100%" height="100%" fill="none">
+        <defs>
+          <linearGradient id="docGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#4c4075" stopOpacity="0.85" />
+            <stop offset="100%" stopColor="#251e40" stopOpacity="0.95" />
+          </linearGradient>
+          <linearGradient id="docGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#5b4d8c" stopOpacity="0.9" />
+            <stop offset="100%" stopColor="#322856" stopOpacity="0.95" />
+          </linearGradient>
+          <linearGradient id="docGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#7c6aa6" stopOpacity="0.95" />
+            <stop offset="100%" stopColor="#453870" stopOpacity="0.98" />
+          </linearGradient>
+          <filter id="purpleGlow" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur stdDeviation="10" result="blur" />
+            <feComposite in="SourceGraphic" in2="blur" operator="over" />
+          </filter>
+        </defs>
+        <circle cx="80" cy="80" r="52" fill="#8b5cf6" opacity="0.18" filter="url(#purpleGlow)" />
+        {/* Document 3 */}
+        <g transform="translate(46, 20) rotate(14)">
+          <rect x="0" y="0" width="56" height="76" rx="6" fill="url(#docGrad1)" stroke="#8b5cf6" strokeOpacity="0.4" strokeWidth="1.2" />
+        </g>
+        {/* Document 2 */}
+        <g transform="translate(36, 26) rotate(7)">
+          <rect x="0" y="0" width="58" height="78" rx="6" fill="url(#docGrad2)" stroke="#a78bfa" strokeOpacity="0.5" strokeWidth="1.2" />
+          <line x1="10" y1="16" x2="38" y2="16" stroke="#c4b5fd" strokeWidth="2" strokeLinecap="round" opacity="0.6" />
+          <line x1="10" y1="26" x2="46" y2="26" stroke="#c4b5fd" strokeWidth="1.5" strokeLinecap="round" opacity="0.4" />
+        </g>
+        {/* Document 1 */}
+        <g transform="translate(24, 32)">
+          <rect x="0" y="0" width="62" height="82" rx="6" fill="url(#docGrad3)" stroke="#ddd6fe" strokeWidth="1.2" />
+          <line x1="10" y1="18" x2="50" y2="18" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" opacity="0.9" />
+          <line x1="10" y1="28" x2="52" y2="28" stroke="#ddd6fe" strokeWidth="2" strokeLinecap="round" opacity="0.75" />
+          <line x1="10" y1="37" x2="48" y2="37" stroke="#ddd6fe" strokeWidth="2" strokeLinecap="round" opacity="0.75" />
+          <line x1="10" y1="46" x2="52" y2="46" stroke="#ddd6fe" strokeWidth="2" strokeLinecap="round" opacity="0.75" />
+          <line x1="10" y1="55" x2="36" y2="55" stroke="#ddd6fe" strokeWidth="2" strokeLinecap="round" opacity="0.75" />
+        </g>
+        {/* Circle badge with 'L' */}
+        <g transform="translate(94, 94)">
+          <circle cx="18" cy="18" r="18" fill="#0c0d14" stroke="#c4b5fd" strokeWidth="2" />
+          <circle cx="18" cy="18" r="15" fill="#2d224b" opacity="0.95" />
+          <text x="18" y="23" textAnchor="middle" fill="#ffffff" fontSize="13" fontWeight="700" fontFamily="Inter, sans-serif">L</text>
+        </g>
+      </svg>
+    )
+  }
+  if (type === 'data') {
+    return (
+      <svg viewBox="0 0 160 160" width="100%" height="100%" fill="none">
+        <defs>
+          <linearGradient id="cubeTop" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#5b4d8c" />
+            <stop offset="100%" stopColor="#322856" />
+          </linearGradient>
+          <linearGradient id="cubeLeft" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stopColor="#251e40" />
+            <stop offset="100%" stopColor="#141024" />
+          </linearGradient>
+          <linearGradient id="cubeRight" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stopColor="#3b3063" />
+            <stop offset="100%" stopColor="#1e1838" />
+          </linearGradient>
+        </defs>
+        <circle cx="80" cy="80" r="48" fill="#8b5cf6" opacity="0.16" filter="blur(12px)" />
+        {/* Layer 3 (Bottom) */}
+        <g transform="translate(80, 96)">
+          <path d="M 0 -16 L 28 0 L 0 16 L -28 0 Z" fill="url(#cubeTop)" stroke="#7c3aed" strokeWidth="1" />
+          <path d="M -28 0 L 0 16 L 0 34 L -28 18 Z" fill="url(#cubeLeft)" stroke="#7c3aed" strokeWidth="0.8" />
+          <path d="M 0 16 L 28 0 L 28 18 L 0 34 Z" fill="url(#cubeRight)" stroke="#7c3aed" strokeWidth="0.8" />
+        </g>
+        {/* Layer 2 (Middle) */}
+        <g transform="translate(80, 72)">
+          <path d="M 0 -16 L 28 0 L 0 16 L -28 0 Z" fill="url(#cubeTop)" stroke="#a78bfa" strokeWidth="1" />
+          <path d="M -28 0 L 0 16 L 0 22 L -28 6 Z" fill="url(#cubeLeft)" stroke="#a78bfa" strokeWidth="0.8" />
+          <path d="M 0 16 L 28 0 L 28 6 L 0 22 Z" fill="url(#cubeRight)" stroke="#a78bfa" strokeWidth="0.8" />
+        </g>
+        {/* Layer 1 (Top) */}
+        <g transform="translate(80, 48)">
+          <path d="M 0 -16 L 28 0 L 0 16 L -28 0 Z" fill="url(#cubeTop)" stroke="#c4b5fd" strokeWidth="1.2" />
+          <path d="M -28 0 L 0 16 L 0 22 L -28 6 Z" fill="url(#cubeLeft)" stroke="#c4b5fd" strokeWidth="0.8" />
+          <path d="M 0 16 L 28 0 L 28 6 L 0 22 Z" fill="url(#cubeRight)" stroke="#c4b5fd" strokeWidth="0.8" />
+        </g>
+
+        {/* Top-Left Badge: Green X */}
+        <g transform="translate(18, 28)">
+          <rect x="0" y="0" width="22" height="22" rx="5" fill="#15803d" stroke="#4ade80" strokeWidth="1.2" />
+          <path d="M 6 6 L 16 16 M 16 6 L 6 16" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" />
+        </g>
+
+        {/* Top-Right Badge: Purple list lines */}
+        <g transform="translate(122, 24)">
+          <rect x="0" y="0" width="22" height="22" rx="5" fill="#5b21b6" stroke="#a78bfa" strokeWidth="1.2" />
+          <line x1="5" y1="7" x2="17" y2="7" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" />
+          <line x1="5" y1="11" x2="17" y2="11" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" />
+          <line x1="5" y1="15" x2="13" y2="15" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" />
+        </g>
+
+        {/* Bottom-Left Badge: Purple 4 dots */}
+        <g transform="translate(14, 94)">
+          <rect x="0" y="0" width="22" height="22" rx="5" fill="#701a75" stroke="#f43f5e" strokeWidth="1.2" />
+          <circle cx="7" cy="7" r="2.2" fill="#eab308" />
+          <circle cx="15" cy="7" r="2.2" fill="#22c55e" />
+          <circle cx="7" cy="15" r="2.2" fill="#ec4899" />
+          <circle cx="15" cy="15" r="2.2" fill="#38bdf8" />
+        </g>
+
+        {/* Bottom-Right Badge: Orange User */}
+        <g transform="translate(120, 100)">
+          <rect x="0" y="0" width="22" height="22" rx="5" fill="#c2410c" stroke="#fb923c" strokeWidth="1.2" />
+          <circle cx="11" cy="8" r="3" fill="#ffffff" />
+          <path d="M 5 18 C 5 13 8 13 11 13 C 14 13 17 13 17 18 Z" fill="#ffffff" />
+        </g>
+      </svg>
+    )
+  }
+  if (type === 'customer') {
+    return (
+      <svg viewBox="0 0 160 160" width="100%" height="100%" fill="none">
+        <defs>
+          <linearGradient id="chatGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#7c3aed" />
+            <stop offset="100%" stopColor="#4c1d95" />
+          </linearGradient>
+        </defs>
+        <circle cx="75" cy="75" r="46" fill="#8b5cf6" opacity="0.18" filter="blur(14px)" />
+
+        {/* Top small dark badge */}
+        <g transform="translate(48, 20)">
+          <rect x="0" y="0" width="46" height="20" rx="5" fill="#131120" stroke="#6d28d9" strokeWidth="1.2" />
+          <rect x="6" y="6" width="16" height="4" rx="2" fill="#a78bfa" />
+          <line x1="26" y1="8" x2="38" y2="8" stroke="#6b7280" strokeWidth="2" strokeLinecap="round" />
+        </g>
+
+        {/* Main chat bubble */}
+        <g transform="translate(20, 46)">
+          <rect x="0" y="0" width="94" height="60" rx="12" fill="url(#chatGrad)" stroke="#c4b5fd" strokeWidth="1.5" />
+          <rect x="14" y="16" width="66" height="8" rx="4" fill="#ffffff" />
+          <rect x="14" y="32" width="44" height="7" rx="3.5" fill="#ddd6fe" opacity="0.85" />
+        </g>
+
+        {/* Attached User circle badge on bottom right */}
+        <g transform="translate(98, 88)">
+          <circle cx="18" cy="18" r="18" fill="#0d0e15" stroke="#c4b5fd" strokeWidth="2" />
+          <circle cx="18" cy="18" r="15" fill="#6d28d9" />
+          <circle cx="18" cy="13" r="4.5" fill="#ffffff" />
+          <path d="M 9 27 C 9 21 13 20 18 20 C 23 20 27 21 27 27 Z" fill="#ffffff" />
+        </g>
+      </svg>
+    )
+  }
+  if (type === 'legacy') {
+    return (
+      <svg viewBox="0 0 160 160" width="100%" height="100%" fill="none">
+        <defs>
+          <linearGradient id="servTop" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#5b4d8c" />
+            <stop offset="100%" stopColor="#322856" />
+          </linearGradient>
+          <linearGradient id="servSide" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stopColor="#251e40" />
+            <stop offset="100%" stopColor="#141024" />
+          </linearGradient>
+        </defs>
+        <circle cx="75" cy="80" r="48" fill="#8b5cf6" opacity="0.18" filter="blur(14px)" />
+
+        {/* Server 3 (Bottom) */}
+        <g transform="translate(75, 96)">
+          <path d="M 0 -14 L 38 0 L 0 14 L -38 0 Z" fill="url(#servTop)" stroke="#7c3aed" strokeWidth="1" />
+          <path d="M -38 0 L 0 14 L 0 24 L -38 10 Z" fill="url(#servSide)" stroke="#7c3aed" strokeWidth="0.8" />
+          <path d="M 0 14 L 38 0 L 38 10 L 0 24 Z" fill="url(#servSide)" stroke="#7c3aed" strokeWidth="0.8" />
+          <line x1="-24" y1="7" x2="-8" y2="13" stroke="#a78bfa" strokeWidth="2" strokeLinecap="round" />
+        </g>
+        {/* Server 2 (Middle) */}
+        <g transform="translate(75, 70)">
+          <path d="M 0 -14 L 38 0 L 0 14 L -38 0 Z" fill="url(#servTop)" stroke="#a78bfa" strokeWidth="1" />
+          <path d="M -38 0 L 0 14 L 0 24 L -38 10 Z" fill="url(#servSide)" stroke="#a78bfa" strokeWidth="0.8" />
+          <path d="M 0 14 L 38 0 L 38 10 L 0 24 Z" fill="url(#servSide)" stroke="#a78bfa" strokeWidth="0.8" />
+          <line x1="-24" y1="7" x2="-8" y2="13" stroke="#c4b5fd" strokeWidth="2" strokeLinecap="round" />
+        </g>
+        {/* Server 1 (Top) */}
+        <g transform="translate(75, 44)">
+          <path d="M 0 -14 L 38 0 L 0 14 L -38 0 Z" fill="url(#servTop)" stroke="#ddd6fe" strokeWidth="1.2" />
+          <path d="M -38 0 L 0 14 L 0 24 L -38 10 Z" fill="url(#servSide)" stroke="#ddd6fe" strokeWidth="0.8" />
+          <path d="M 0 14 L 38 0 L 38 10 L 0 24 Z" fill="url(#servSide)" stroke="#ddd6fe" strokeWidth="0.8" />
+          <line x1="-24" y1="7" x2="-8" y2="13" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" />
+        </g>
+
+        {/* Circle Link Badge on Bottom Right */}
+        <g transform="translate(102, 92)">
+          <circle cx="18" cy="18" r="18" fill="#0d0e15" stroke="#c4b5fd" strokeWidth="2" />
+          <circle cx="18" cy="18" r="15" fill="#7c3aed" />
+          <path d="M 12 18 C 12 15 15 15 18 18 C 21 21 24 21 24 18 C 24 15 21 15 18 18 C 15 21 12 21 12 18 Z" stroke="#ffffff" strokeWidth="2" fill="none" strokeLinecap="round" />
+        </g>
+      </svg>
+    )
+  }
+  if (type === 'workflow') {
+    return (
+      <svg viewBox="0 0 160 160" width="100%" height="100%" fill="none">
+        <circle cx="80" cy="80" r="48" fill="#8b5cf6" opacity="0.16" filter="blur(14px)" />
+
+        {/* Curved dotted line connecting node 1 to node 2 to node 3 */}
+        <path d="M 52 46 C 114 46 114 85 96 85 M 96 85 C 75 85 45 100 52 120" stroke="#c4b5fd" strokeWidth="2" strokeDasharray="3 3" fill="none" />
+
+        {/* Top Node Card */}
+        <g transform="translate(28, 24)">
+          <rect x="0" y="0" width="46" height="34" rx="7" fill="#1d1733" stroke="#a78bfa" strokeWidth="1.2" />
+          <rect x="6" y="6" width="18" height="6" rx="3" fill="#a78bfa" />
+          <line x1="6" y1="20" x2="34" y2="20" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" />
+        </g>
+
+        {/* Middle Node Card */}
+        <g transform="translate(86, 68)">
+          <rect x="0" y="0" width="48" height="34" rx="7" fill="#1d1733" stroke="#a78bfa" strokeWidth="1.2" />
+          <line x1="8" y1="17" x2="30" y2="17" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" />
+          <circle cx="38" cy="17" r="3.5" fill="#a78bfa" />
+        </g>
+
+        {/* Bottom Gear Node Card */}
+        <g transform="translate(32, 104)">
+          <rect x="0" y="0" width="46" height="34" rx="7" fill="#1d1733" stroke="#c4b5fd" strokeWidth="1.2" />
+          <g transform="translate(23, 17)">
+            <circle cx="0" cy="0" r="6" fill="none" stroke="#ffffff" strokeWidth="2" />
+            <path d="M 0 -8 L 0 -6 M 0 6 L 0 8 M -8 0 L -6 0 M 6 0 L 8 0 M -5.5 -5.5 L -4 -4 M 4 4 L 5.5 5.5 M -5.5 5.5 L -4 4 M 4 -4 L 5.5 -5.5" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" />
+          </g>
+        </g>
+      </svg>
+    )
+  }
+  if (type === 'ai') {
+    return (
+      <svg viewBox="0 0 160 160" width="100%" height="100%" fill="none">
+        <defs>
+          <linearGradient id="aiChipGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#453870" />
+            <stop offset="100%" stopColor="#1e1838" />
+          </linearGradient>
+          <filter id="aiGlow" x="-30%" y="-30%" width="160%" height="160%">
+            <feGaussianBlur stdDeviation="10" result="blur" />
+            <feComposite in="SourceGraphic" in2="blur" operator="over" />
+          </filter>
+        </defs>
+        <circle cx="56" cy="80" r="44" fill="#8b5cf6" opacity="0.3" filter="url(#aiGlow)" />
+
+        {/* Processor Pins */}
+        <g stroke="#c4b5fd" strokeWidth="1.8" strokeLinecap="round">
+          <line x1="42" y1="48" x2="42" y2="55" />
+          <line x1="50" y1="48" x2="50" y2="55" />
+          <line x1="58" y1="48" x2="58" y2="55" />
+          <line x1="66" y1="48" x2="66" y2="55" />
+          <line x1="42" y1="105" x2="42" y2="112" />
+          <line x1="50" y1="105" x2="50" y2="112" />
+          <line x1="58" y1="105" x2="58" y2="112" />
+          <line x1="66" y1="105" x2="66" y2="112" />
+          <line x1="25" y1="66" x2="32" y2="66" />
+          <line x1="25" y1="74" x2="32" y2="74" />
+          <line x1="25" y1="82" x2="32" y2="82" />
+          <line x1="25" y1="90" x2="32" y2="90" />
+          <line x1="80" y1="66" x2="87" y2="66" />
+          <line x1="80" y1="74" x2="87" y2="74" />
+          <line x1="80" y1="82" x2="87" y2="82" />
+          <line x1="80" y1="90" x2="87" y2="90" />
+        </g>
+
+        {/* AI Chip */}
+        <rect x="32" y="55" width="48" height="50" rx="8" fill="url(#aiChipGrad)" stroke="#c4b5fd" strokeWidth="1.5" />
+        <text x="56" y="86" textAnchor="middle" fill="#ffffff" fontSize="17" fontWeight="800" fontFamily="Inter, sans-serif" letterSpacing="0.5">AI</text>
+
+        {/* Dotted lines to pills */}
+        <path d="M 80 66 Q 98 48 106 38" stroke="#c4b5fd" strokeWidth="1.2" strokeDasharray="2.5 2.5" fill="none" />
+        <path d="M 80 80 Q 98 80 106 80" stroke="#c4b5fd" strokeWidth="1.2" strokeDasharray="2.5 2.5" fill="none" />
+        <path d="M 80 94 Q 98 112 106 122" stroke="#c4b5fd" strokeWidth="1.2" strokeDasharray="2.5 2.5" fill="none" />
+
+        {/* Strategy Pill */}
+        <g transform="translate(102, 26)">
+          <rect x="0" y="0" width="52" height="18" rx="9" fill="#0d0e15" stroke="#a78bfa" strokeWidth="1" />
+          <circle cx="8" cy="9" r="2.5" fill="#a78bfa" />
+          <text x="28" y="12" textAnchor="middle" fill="#ffffff" fontSize="8.5" fontWeight="600" fontFamily="Inter, sans-serif">Strategy</text>
+        </g>
+
+        {/* Integration Pill */}
+        <g transform="translate(102, 71)">
+          <rect x="0" y="0" width="54" height="18" rx="9" fill="#0d0e15" stroke="#a78bfa" strokeWidth="1" />
+          <circle cx="8" cy="9" r="2.5" fill="#a78bfa" />
+          <text x="29" y="12" textAnchor="middle" fill="#ffffff" fontSize="8.5" fontWeight="600" fontFamily="Inter, sans-serif">Integration</text>
+        </g>
+
+        {/* Results Pill */}
+        <g transform="translate(102, 113)">
+          <rect x="0" y="0" width="50" height="18" rx="9" fill="#0d0e15" stroke="#a78bfa" strokeWidth="1" />
+          <circle cx="8" cy="9" r="2.5" fill="#a78bfa" />
+          <text x="27" y="12" textAnchor="middle" fill="#ffffff" fontSize="8.5" fontWeight="600" fontFamily="Inter, sans-serif">Results</text>
+        </g>
+      </svg>
+    )
+  }
+  return null
+}
 const buildItems = [['AI Research & Development', 'Experiments, prototypes, evaluation, and applied AI architecture.'], ['Custom AI Systems', 'Intelligent systems designed around your workflows and data.'], ['AI Agents', 'Conversational, workflow, sales, and support agents.'], ['Voice AI', 'Voice systems for customer interaction and operations.'], ['Business Automation', 'Automation for repetitive processes, reporting, and operations.'], ['Software Engineering', 'Web apps, platforms, APIs, dashboards, and internal tools.'], ['Data Intelligence', 'Pipelines, search, knowledge systems, and decision support.'], ['AI Integration', 'AI connected to CRM, ERP, communication, and existing software.'], ['Deployment & Infrastructure', 'Cloud, APIs, databases, monitoring, security, and scale.']]
 const reasons = [['Research first', 'We investigate before selecting technology.'], ['Business specific', 'Solutions are designed around real workflows.'], ['Engineering driven', 'Research becomes working technology.'], ['Production focused', 'Systems are built for deployment.'], ['Integration ready', 'Technology works with existing systems.'], ['Long-term R&D', 'We continuously improve deployed systems.']]
 const engagements = [['R&D Partnership', 'Continuous technology research and development.', 'Build with Mentneo'], ['Custom Solution', 'A specific business problem requiring a custom AI or software system.', 'Discuss your problem'], ['Implementation & Deployment', 'Engineering, integration, and production deployment.', 'Start implementation']]
@@ -195,9 +889,40 @@ function App() {
       setCurrentPath(nextPath)
     }
 
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        setActiveMenu(null)
+        setSearchOpen(false)
+        setMenuOpen(false)
+      }
+    }
+
     window.addEventListener('popstate', handleLocationChange)
-    return () => window.removeEventListener('popstate', handleLocationChange)
+    window.addEventListener('keydown', handleKeyDown)
+    return () => {
+      window.removeEventListener('popstate', handleLocationChange)
+      window.removeEventListener('keydown', handleKeyDown)
+    }
   }, [])
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible')
+            observer.unobserve(entry.target)
+          }
+        })
+      },
+      { threshold: 0.15 }
+    )
+
+    const elements = document.querySelectorAll('.scroll-reveal')
+    elements.forEach((el) => observer.observe(el))
+
+    return () => observer.disconnect()
+  }, [currentPath])
 
   const navigateTo = (path) => {
     const nextPath = path.startsWith('/') ? path : `/${path}`
@@ -279,9 +1004,17 @@ function App() {
   <section className="hero">
     <div className="hero-content">
       <div className="hero-copy">
-        <h1 className="hero-heading"><span className="text-mentneo-gradient">MENTNEO</span> <span>DevDay</span> <span className="text-purple">[2026]</span></h1>
-        <p className="hero-intro">WE RESEARCH. <span style={{color: '#3b82f6'}}>WE BUILD.</span> WE DEPLOY.</p>
-        <div className="hero-actions" style={{justifyContent: 'center', marginTop: '24px'}}>
+        <h1 className="hero-heading">
+          <span className="text-mentneo-gradient hero-anim-mentneo">MENTNEO</span>{' '}
+          <span className="hero-anim-devday">DevDay</span>{' '}
+          <span className="text-purple hero-anim-year">[2026]</span>
+        </h1>
+        <p className="hero-intro">
+          <span className="tagline-phrase phrase-1">WE RESEARCH.</span>{' '}
+          <span className="tagline-phrase phrase-2" style={{color: '#3b82f6'}}>WE BUILD.</span>{' '}
+          <span className="tagline-phrase phrase-3">WE DEPLOY.</span>
+        </p>
+        <div className="hero-actions hero-anim-btn" style={{justifyContent: 'center', marginTop: '24px'}}>
           <a className="button button-watch" href="#live">Coming soon</a>
         </div>
       </div>
@@ -309,13 +1042,229 @@ function App() {
   </section>
 </div>
       <section className="trust-strip"><strong>Research-led. Engineering-driven. Business-focused. Production-ready.</strong><div>{['AI Research', 'Custom AI Systems', 'Automation', 'AI Agents', 'Software Engineering', 'Data Intelligence', 'Integration', 'Deployment'].map(item => <span key={item}>{item}</span>)}</div></section>
-      <section className="statement section-pad" id="about"><div className="section-label">02 / THE PROBLEM</div><div className="statement-content"><h2>Your business has a problem.<br /><span>Technology should solve it.</span></h2><div><p>Most businesses don’t need another AI tool. They need technology designed around the way their business actually works.</p><p className="accent-copy">We don’t start with a product.<br /><strong>We start with the problem.</strong></p></div></div><div className="challenge-grid">{challenges.map(([title, text], index) => <article key={title} onMouseMove={(e) => { const rect = e.currentTarget.getBoundingClientRect(); e.currentTarget.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`); e.currentTarget.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`); }}><span>0{index + 1}</span><h3>{title}</h3><p>{text}</p></article>)}</div></section>
-      <section className="approach section-pad" id="approach"><div className="section-label">03 / THE MENTNEO APPROACH</div><div className="section-heading"><h2>We don’t start with a product.<br /><span>We start with the problem.</span></h2><p>A considered path from first principles to a system that works inside the real world.</p></div><div className="steps">{steps.map(([number, title, text]) => <article className="step" key={number}><span className="step-number">{number}</span><h3>{title}</h3><p>{text}</p></article>)}</div></section>
+      <section className="statement section-pad scroll-reveal" id="about">
+        <div className="section-label">02 / THE PROBLEM</div>
+        <div className="statement-content">
+          <h2 className="scroll-words-heading">
+            <span className="scroll-word" style={{ '--w-idx': 0 }}>Your</span>{' '}
+            <span className="scroll-word" style={{ '--w-idx': 1 }}>business</span>{' '}
+            <span className="scroll-word" style={{ '--w-idx': 2 }}>has</span>{' '}
+            <span className="scroll-word" style={{ '--w-idx': 3 }}>a</span>{' '}
+            <span className="scroll-word" style={{ '--w-idx': 4 }}>problem.</span>
+            <br />
+            <span className="scroll-word" style={{ '--w-idx': 5 }}>Technology</span>{' '}
+            <span className="scroll-word" style={{ '--w-idx': 6 }}>should</span>{' '}
+            <span className="scroll-word" style={{ '--w-idx': 7 }}>solve</span>{' '}
+            <span className="scroll-word" style={{ '--w-idx': 8 }}>it.</span>
+          </h2>
+          <div>
+            <p className="statement-desc-text">Most businesses don’t need another AI tool. They need technology designed around the way their business actually works.</p>
+            <p className="accent-copy">We don’t start with a product.<br /><strong>We start with the problem.</strong></p>
+          </div>
+        </div>
+        <div className="challenge-grid">{challengesData.map(item => <article className="challenge-card" key={item.id} onMouseMove={(e) => { const rect = e.currentTarget.getBoundingClientRect(); e.currentTarget.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`); e.currentTarget.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`); }}><div className="challenge-card-body"><div className="challenge-card-header"><span className="challenge-card-num">{item.id} —</span></div><h3 className="challenge-card-title">{item.title}</h3><p className="challenge-card-desc">{item.desc}</p><ul className="challenge-card-points">{item.points.map(point => <li key={point}><span className="check-icon">✓</span><span>{point}</span></li>)}</ul><a className="challenge-card-btn" href="#contact">Learn more <span className="btn-arrow">→</span></a></div><div className="challenge-card-visual">{renderChallengeVisual(item.visual)}</div></article>)}</div>
+      </section>
+      <section className="approach section-pad" id="approach">
+        <div className="process-header">
+          <div className="process-header-left">
+            <div className="section-label">OUR PROCESS <span className="label-line" /></div>
+            <h2 className="process-main-heading">From Idea to Impact</h2>
+          </div>
+          <div className="process-header-right">
+            <p className="process-header-subtitle">A structured approach to turn complex problems into scalable, real-world solutions.</p>
+          </div>
+        </div>
+
+        <div className="process-timeline-container">
+          <div className="process-timeline-track" />
+          <div className="process-cards-grid">
+            {processStepsData.map((step) => (
+              <div className={`process-card-wrapper ${step.active ? 'active' : ''}`} key={step.num}>
+                <div className="process-step-node">
+                  <span>{step.num}</span>
+                </div>
+                <article className="process-card">
+                  <div className="process-card-icon">
+                    {renderProcessIcon(step.icon)}
+                  </div>
+                  <h3 className="process-card-title">{step.title}</h3>
+                  <p className="process-card-desc">{step.desc}</p>
+                  <ul className="process-card-points">
+                    {step.points.map((pt) => (
+                      <li key={pt}>
+                        <span className="bullet-dot" />
+                        <span>{pt}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="process-card-footer">
+                    <button className="process-arrow-btn" aria-label={`Learn more about ${step.title}`}>
+                      <span>→</span>
+                    </button>
+                    <span className="footer-line" />
+                  </div>
+                </article>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
       <section className="capabilities capability-index section-pad" id="capabilities" onMouseLeave={() => setCapabilityPaused(false)}><div className="section-label">04 / CAPABILITIES</div><div className="capability-layout"><div className="capability-directory"><h2>Technology <span>with a reason.</span></h2><p className="section-lede">Deep technical capability is only useful when it changes something meaningful for the business.</p><div className="capability-list">{capabilities.map(([number, title, description], index) => <div className={activeCapability === index ? 'capability-row active' : 'capability-row'} onMouseEnter={() => { setActiveCapability(index); setCapabilityPaused(true) }} onClick={() => { setActiveCapability(index); setCapabilityPaused(true) }} key={number}><span className="capability-number">{number}</span><strong>{title}</strong><p>{description}</p><i>↗</i></div>)}</div><div className="capability-footer"><span>09 CAPABILITIES</span><span>RESEARCH → ENGINEERING → IMPLEMENTATION</span><span>EXPLORE ALL ↗</span></div></div></div></section>
-      <section className="problem-solver section-pad"><div className="section-label">05 / PROBLEM TO SOLUTION</div><div className="section-heading"><h2>Tell us the problem.<br /><span>We’ll research the solution.</span></h2></div><div className="problem-layout"><div className="problem-list">{problems.map(([problem, solution], index) => <button className={activeProblem === index ? 'problem-item active' : 'problem-item'} onClick={() => setActiveProblem(index)} key={problem}><span>{problem}</span><b>→</b><strong>{solution}</strong></button>)}</div><div className="solution-map"><div className="solution-step"><div className="step-node" /><div className="step-info"><span>01 / PROBLEM</span><strong>{problems[activeProblem][0]}</strong></div></div><div className="solution-step"><div className="step-node" /><div className="step-info"><span>02 / RESEARCH</span><strong>Mentneo R&D</strong></div></div><div className="solution-step"><div className="step-node" /><div className="step-info"><span>03 / SOLUTION</span><strong>{problems[activeProblem][1]}</strong></div></div><div className="solution-step"><div className="step-node" /><div className="step-info"><span>04 / DEPLOYMENT</span><strong>Production system</strong></div></div></div></div></section>
-      <section className="build section-pad"><div className="section-label">06 / WHAT WE BUILD</div><div className="section-heading"><h2>Technology built<br /><span>around your business.</span></h2><p>We don’t sell one-size-fits-all AI. We research and build systems around the problem that needs to be solved.</p></div><div className="build-grid">{buildItems.map(([title, text], index) => <article key={title}><span className="build-icon">0{index + 1}</span><h3>{title}</h3><p>{text}</p><b>↗</b></article>)}</div></section>
+      <section className="problem-solver section-pad" id="problem-solution">
+        <div className="problem-header-wrapper">
+          <div className="section-label">— 05 / PROBLEM TO SOLUTION</div>
+          <h2 className="problem-main-heading">
+            Tell us the problem.<br />
+            We’ll <span className="highlight-blue-text">research</span> the solution.
+          </h2>
+        </div>
+
+        <div className="problem-layout-v2">
+          {/* Left Column: 8 Interactive Pill Buttons */}
+          <div className="problem-pill-list">
+            {problemSolutionData.map((item, index) => {
+              const isActive = activeProblem === index;
+              return (
+                <button
+                  key={item.id}
+                  className={`problem-pill-btn ${isActive ? 'active' : ''}`}
+                  onClick={() => setActiveProblem(index)}
+                >
+                  <span className="pill-num">{item.id}</span>
+                  <span className="pill-problem">{item.problem}</span>
+                  <span className="pill-arrow">→</span>
+                  <span className="pill-solution">{item.solution}</span>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Right Column: Dynamic Detail Glass Card */}
+          <div className="solution-detail-card">
+            <div className="solution-card-top">
+              <span className="solution-step-eyebrow">{problemSolutionData[activeProblem].subtitle}</span>
+              <div className="solution-icon-box">
+                {renderProblemIcon(problemSolutionData[activeProblem].icon)}
+              </div>
+            </div>
+
+            <h3 className="solution-card-title">{problemSolutionData[activeProblem].cardTitle}</h3>
+            <p className="solution-card-desc">{problemSolutionData[activeProblem].desc}</p>
+
+            {/* Vertical Stepper Timeline */}
+            <div className="solution-stepper-list">
+              {problemSolutionData[activeProblem].steps.map((step, sIdx) => (
+                <div key={step.num} className={`stepper-item ${sIdx === 0 ? 'active' : ''}`}>
+                  <div className="stepper-left">
+                    <div className={`stepper-node ${sIdx === 0 ? 'glowing-dot' : 'ring-dot'}`} />
+                    {sIdx < problemSolutionData[activeProblem].steps.length - 1 && <div className="stepper-line" />}
+                  </div>
+                  <div className="stepper-content">
+                    <div className="stepper-head">
+                      <span className="stepper-num">{step.num}</span>
+                      <span className="stepper-title">{step.title}</span>
+                    </div>
+                    <p className="stepper-desc">{step.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Bottom-right glowing orb gradient */}
+            <div className="solution-card-orb" />
+          </div>
+        </div>
+      </section>
+      <section className="build section-pad">
+        <div className="section-label">06 / WHAT WE BUILD</div>
+        <div className="section-heading">
+          <h2>Technology built<br /><span>around your business.</span></h2>
+          <p>We don’t sell one-size-fits-all AI. We research and build systems around the problem that needs to be solved.</p>
+        </div>
+        <div className="build-grid">
+          {buildCardsData.map((item) => (
+            <article className="build-card" key={item.id}>
+              <div className="build-card-header">
+                <div className="build-card-icon-box">
+                  {renderBuildIcon(item.icon)}
+                </div>
+                <span className="build-card-num">{item.id}</span>
+              </div>
+              <h3 className="build-card-title">{item.title}</h3>
+              <p className="build-card-desc">{item.desc}</p>
+              <i className="build-card-arrow">↗</i>
+            </article>
+          ))}
+        </div>
+      </section>
       <section className="architecture section-pad"><div className="section-label">/ SYSTEM ARCHITECTURE</div><div className="architecture-head"><h2>Complete systems.<br /><span>Not isolated tools.</span></h2><span className="architecture-status">SYSTEM / ACTIVE<br />R&D / 001</span></div><div className="architecture-canvas"><div className="architecture-flow">{['Business', 'Application', 'AI Layer', 'Data', 'Integrations', 'Infrastructure'].map((layer, index) => <div className="architecture-layer" key={layer}><span>0{index + 1}</span><strong>{layer}</strong><i>{['API', 'WORKFLOW', 'LLM', 'RAG', 'AGENT', 'MONITORING'][index]}</i></div>)}</div><div className="architecture-pulse" /></div></section>
-      <section className="transformation section-pad"><div className="transformation-side"><span className="section-label">/ SYSTEMS</span><h2>You bring<br /><span>the problem.</span></h2></div><div className="transformation-side right"><span className="section-label">/ MENTNEO</span><h2>We build<br /><span>the system.</span></h2></div><div className="transformation-list">{[['Manual calls', 'Voice AI'], ['Scattered data', 'Knowledge system'], ['Repetitive workflow', 'Automation'], ['Legacy software', 'Intelligent platform'], ['Complex operations', 'AI workflow']].map(([from, to]) => <div key={from}><strong>{from}</strong><span>→</span><b>{to}</b></div>)}</div></section>
+      <section className="transformation section-pad" id="systems">
+        <div className="transformation-container">
+          <div className="transformation-head-grid">
+            <div className="transformation-side left-side">
+              <div className="section-label">— / SYSTEMS</div>
+              <h2 className="transformation-title">
+                You bring<br />
+                the <span className="highlight-blue-text">problem.</span>
+              </h2>
+              <p className="transformation-desc">
+                Real business challenges, complex workflows, and unique needs.
+              </p>
+            </div>
+
+            <div className="transformation-divider" />
+
+            <div className="transformation-side right-side">
+              <div className="section-label">— / MENTNEO</div>
+              <h2 className="transformation-title">
+                We build<br />
+                the <span className="highlight-blue-text">system.</span>
+              </h2>
+              <p className="transformation-desc">
+                Scalable solutions, built with the right technology to create real impact.
+              </p>
+            </div>
+          </div>
+
+          <div className="transformation-table">
+            <div className="transformation-col left-col">
+              <div className="trans-row">
+                <span className="trans-from">MANUAL CALLS</span>
+                <span className="trans-arrow">→</span>
+                <strong className="trans-to">VOICE AI</strong>
+              </div>
+              <div className="trans-row">
+                <span className="trans-from">REPETITIVE WORKFLOW</span>
+                <span className="trans-arrow">→</span>
+                <strong className="trans-to">AUTOMATION</strong>
+              </div>
+              <div className="trans-row">
+                <span className="trans-from">COMPLEX OPERATIONS</span>
+                <span className="trans-arrow">→</span>
+                <strong className="trans-to">AI WORKFLOW</strong>
+              </div>
+            </div>
+
+            <div className="transformation-col right-col">
+              <div className="trans-row">
+                <span className="trans-from">SCATTERED DATA</span>
+                <span className="trans-arrow">→</span>
+                <strong className="trans-to">KNOWLEDGE SYSTEM</strong>
+              </div>
+              <div className="trans-row">
+                <span className="trans-from">LEGACY SOFTWARE</span>
+                <span className="trans-arrow">→</span>
+                <strong className="trans-to">INTELLIGENT PLATFORM</strong>
+              </div>
+              <div className="trans-row">
+                <span className="trans-from">NEW TECHNOLOGY NEEDED</span>
+                <span className="trans-arrow">→</span>
+                <strong className="trans-to">CUSTOM AI SYSTEM</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       <section className="industries section-pad" id="industries"><div className="section-label">09 / INDUSTRIES</div><div className="section-heading"><h2>Built for real<br /><span>business problems.</span></h2><p>We research the operational reality of each environment before we design what belongs inside it.</p></div><div className="industry-grid">{['Real Estate', 'Healthcare', 'Education', 'Finance', 'Retail', 'Manufacturing', 'Logistics', 'Technology', 'SaaS', 'Professional Services', 'Enterprise'].map((industry, index) => <article key={industry}><span>0{index + 1}</span><h3>{industry}</h3><p>Research-led systems for the specific challenges of {industry.toLowerCase()}.</p></article>)}</div></section>
       <section className="lab section-pad" id="lab"><div className="lab-header"><div className="section-label">07 / R&D LAB</div><h2>Where research<br /><span>becomes technology.</span></h2><p>Mentneo continuously researches emerging technologies and turns valuable research into practical systems for real-world businesses.</p></div><div className="lab-board"><div className="board-top"><span>MENTNEO / RESEARCH INDEX</span><span>STATUS: ACTIVE <i className="pulse" /></span></div><div className="lab-grid">{['Generative AI', 'AI Agents', 'Voice AI', 'LLMs', 'RAG', 'AI Automation', 'Computer Vision', 'Intelligent Data', 'Model Evaluation', 'AI Infrastructure', 'Prototype', 'Production System'].map((item, i) => <div className="lab-cell" key={item}><span>0{i + 1}</span><strong>{item}</strong><i>↗</i></div>)}</div></div></section>
 
